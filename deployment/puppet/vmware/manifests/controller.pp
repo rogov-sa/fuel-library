@@ -58,7 +58,7 @@ class vmware::controller (
       } ->
       file_line {'nova-compute env':
         path => $::nova::params::compute_opts_file,
-        line => "OPTIONS='--config-dir=/etc/nova'",
+        line => "OPTIONS='--config-file=/etc/nova/nova.conf --config-file=/etc/nova/nova_vmware.conf'",
       }
     } # close RedHat
     'Debian': { # open Ubuntu
@@ -76,7 +76,7 @@ class vmware::controller (
       } ->
       file_line {'nova-compute env':
         path => $::nova::params::compute_opts_file,
-        line => "OPTIONS='--config-dir=/etc/nova'",
+        line => "OPTIONS='--config-file=/etc/nova/nova.conf --config-file=/etc/nova/nova_vmware.conf'",
       }
     } # close Ubuntu
   } # close case
