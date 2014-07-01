@@ -76,7 +76,7 @@ class vmware::controller (
       } ->
       file_line {'nova-compute env':
         path => $::nova::params::compute_opts_file,
-        line => "OPTIONS='--config-file=/etc/nova/nova.conf --config-file=/etc/nova/nova_vmware.conf'",
+        line => "exec start-stop-daemon --start --chuid nova --exec /usr/bin/nova-compute -- --config-file=/etc/nova/nova.conf --config-file=/etc/nova/nova-compute.conf --config-file=/etc/nova/nova_vmware.conf",
       }
     } # close Ubuntu
   } # close case
